@@ -42,7 +42,7 @@ if password_input:
         df['Date'] = pd.to_datetime(df['Date'])
         
         # Estrai il mese e formattalo come "gg-mmmm-aaaa"
-        df['Mese'] = df['Date'].dt.strftime('%B')
+        df['Mese'] = df['Date'].dt.strftime('%d/%B/%Y')
         
         # Puoi anche rimuovere l'orario dalla colonna "Date" se non ti serve più
         df['Date'] = df['Date'].dt.date
