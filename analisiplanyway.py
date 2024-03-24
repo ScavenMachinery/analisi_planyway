@@ -70,21 +70,16 @@ if password_input:
         ## ATTENZIONE IO USO IL NOME VARIABILE "selected_month" per comodità così non devo modificare il nome di tutte le variabili
         
        
-        today = datetime.datetime.now()
-        this_year = today.year
-        jan_1 = datetime.date(this_year, 1, 1)
-        dec_31 = datetime.date(this_year, 12, 31)
+         # Filtro per periodo personalizzato
+        start_date = st.sidebar.date_input("Seleziona la data di inizio")
+        end_date = st.sidebar.date_input("Seleziona la data di fine", datetime.date.today())
 
-        selected_month_filter = st.sidebar.date_input(
-            "seleziona il periodo",
-            (jan_1, datetime.date(this_year, 1, 7)),
-            jan_1,
-            dec_31,
-            format="MM.DD.YYYY",)
-        st.sidebar.write(selected_month_filter)
+        # Filtra il DataFrame in base al periodo selezionato
+        mask = (df['Date'] >= start_date) & (df['Date'] <= end_date)
+        filtered_df = df.loc[mask]
             
         
-        filtered_df = df[df["Date"] == selected_month_filter]
+        ##filtered_df = df[df["Date"] == selected_month_filter]
         
         
         # Calcola la somma totale di "DurationHours"
