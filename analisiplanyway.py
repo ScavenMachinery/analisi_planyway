@@ -77,7 +77,7 @@ if password_input:
 
         selected_month = st.sidebar.date_input(
             "seleziona il periodo",
-            (jan_1,
+            jan_1,
             dec_31,
             format="MM-DD-YYYY")
         st.sidebar.write(selected_month)
