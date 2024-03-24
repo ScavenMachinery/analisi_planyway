@@ -82,7 +82,7 @@ if password_input:
             dec_31,
             ##format='%d/%m/%Y'
         )
-        st.sidebar(selected_month)
+        st.sidebar.write(selected_month)
             
         
         
