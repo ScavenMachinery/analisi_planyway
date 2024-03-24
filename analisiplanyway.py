@@ -80,7 +80,7 @@ if password_input:
             (jan_1, datetime.date(this_year,1,7)),
             jan_1,
             dec_31,
-            format="DD.MM.YYYY",)
+             format='%d/%m/%Y')
         selected_month
             
         
