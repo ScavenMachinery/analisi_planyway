@@ -80,8 +80,7 @@ if password_input:
             (jan_1, datetime.date(this_year,1,7)),
             jan_1,
             dec_31,
-            ##format='%d/%m/%Y'
-        )
+            format="MM-DD-YYYY")
         st.sidebar.write(selected_month)
             
         
