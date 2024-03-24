@@ -216,14 +216,17 @@ if password_input:
 
                 
                 list_level_data_table = filtered_df.groupby(['List'])['DurationHours'].sum().reset_index()
-                fig_bar_table = px.bar(list_level_data_table,x='List',y='DurationHours')
-                
+                # Ordina il DataFrame in base a DurationHours in ordine decrescente
+                list_level_data_table_sorted = list_level_data_table.sort_values(by='DurationHours', ascending=False)
+
+                # Crea il grafico a barre con il DataFrame ordinato
+                fig_bar_table = px.bar(list_level_data_table_sorted, x='List', y='DurationHours')
+
                 cola, colb = st.columns(2)
                 with cola:
-                    st.dataframe(list_level_data_table)
+                    st.dataframe(list_level_data_table_sorted)
                 with colb:
-                    st.plotly_chart(fig_bar_table,use_container_width=True)
-
+                    st.plotly_chart(fig_bar_table, use_container_width=True)
 
 
 
