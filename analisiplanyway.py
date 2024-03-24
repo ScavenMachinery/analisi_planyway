@@ -213,6 +213,17 @@ if password_input:
         
                 # Visualizza il grafico a torta
                 st.plotly_chart(fig_pie, use_container_width=True)
+
+
+                list_level_data_table = filtered_df.groupby(['List'])['DurationHours'].sum().reset_index()
+                st.dataframe(list_level_data_table)
+
+
+
+
+
+
+            
             # Codice per l'analisi a livello di "CARD LEVEL"
             elif livello_analisi == "CARD LEVEL":
                 st.write("_ANALISI CARD LEVEL_")
