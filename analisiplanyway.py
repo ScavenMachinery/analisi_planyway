@@ -55,13 +55,8 @@ if password_input:
         
         # Puoi anche rimuovere le righe con valori mancanti, se necessario
         df.dropna(inplace=True)
-        
-        with st.expander("Preview Table"):
-            st.dataframe(df)
-        
-        
-        
-        
+
+
         ##FILTRO MESE
         ##selected_month = st.sidebar.selectbox("Seleziona il mese", df["Mese"].unique())
 
@@ -82,6 +77,22 @@ if password_input:
             format="YYYY.MM.DD",)
         selected_month
             
+
+
+
+
+
+        
+
+
+        
+        with st.expander("Preview Table"):
+            st.dataframe(df)
+        
+        
+        
+        
+       
         
         filtered_df = df[df["Date"] == selected_month]
         
