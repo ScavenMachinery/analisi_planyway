@@ -71,8 +71,8 @@ if password_input:
        
         today = datetime.datetime.now()
         this_year = today.year
-        jan_1 = datetime.date(next_year, 1, 1)
-        dec_31 = datetime.date(next_year, 12, 31)
+        jan_1 = datetime.date(this_year, 1, 1)
+        dec_31 = datetime.date(this_year, 12, 31)
 
         selected_month = st.sidebar.date_input(
             "seleziona il periodo",
