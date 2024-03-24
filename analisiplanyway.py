@@ -6,6 +6,7 @@ import plotly.subplots as sp
 import locale
 from PIL import Image
 from streamlit_gsheets import GSheetsConnection
+import datetime
 
 
 
@@ -62,8 +63,27 @@ if password_input:
         
         
         ##FILTRO MESE
-        selected_month = st.sidebar.selectbox("Seleziona il mese", df["Mese"].unique())
-        filtered_df = df[df["Mese"] == selected_month]
+        ##selected_month = st.sidebar.selectbox("Seleziona il mese", df["Mese"].unique())
+
+        ##FILTRO PERIODO PERSONALIZZATO
+        ## ATTENZIONE IO USO IL NOME VARIABILE "selected_month" per comodità così non devo modificare il nome di tutte le variabili
+        
+       
+        today = datetime.datetime.now()
+        this_year = today.year
+        jan_1 = datetime.date(next_year, 1, 1)
+        dec_31 = datetime.date(next_year, 12, 31)
+
+        selected_month = st.sidebar.date_input(
+            "seleziona il periodo",
+            jan_1, datetime.date(this_year,1,7),
+            jan_1,
+            dec_31,
+            format="YYYY.MM.DD",)
+        selected_month
+            
+        
+        filtered_df = df[df["Date"] == selected_month]
         
         
         # Calcola la somma totale di "DurationHours"
