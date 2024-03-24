@@ -222,7 +222,7 @@ if password_input:
                 with cola:
                     st.dataframe(list_level_data_table)
                 with colb:
-                    st.plotlychart(fig_bar_table,use_container_width=True)
+                    st.plotly_chart(fig_bar_table,use_container_width=True)
 
 
 
