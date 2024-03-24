@@ -39,17 +39,15 @@ if password_input:
         desired_columns = ["Board", "List", "Card", "Member", "Date", "StartTime", "EndTime", "DurationHours"]
         df = df[desired_columns]
 
-        # Puoi anche rimuovere l'orario dalla colonna "Date" se non ti serve più
-        df['Date'] = df['Date'].dt.date
-
-
-        
+  
         # Assicurati che la colonna "Date" sia interpretata come una data
         df['Date'] = pd.to_datetime(df['Date'], format='%d/%m/%Y')
         
         # Estrai il mese e formattalo come "gg-mmmm-aaaa"
         df['Mese'] = df['Date'].dt.strftime('%B')
-        
+
+        # Puoi anche rimuovere l'orario dalla colonna "Date" se non ti serve più
+        df['Date'] = df['Date'].dt.date
         
         # Sostituisci i valori vuoti nella colonna "Member" con "LOST"
         df['Member'].fillna('LOST', inplace=True)
