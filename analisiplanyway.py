@@ -214,10 +214,15 @@ if password_input:
                 # Visualizza il grafico a torta
                 st.plotly_chart(fig_pie, use_container_width=True)
 
-
+                
                 list_level_data_table = filtered_df.groupby(['List'])['DurationHours'].sum().reset_index()
-                st.dataframe(list_level_data_table)
-
+                fig_bar_table = px.bar(list_level_data_table,x='List',y='DurationHours')
+                
+                cola, colb = st.columns(2)
+                with cola:
+                    st.dataframe(list_level_data_table)
+                with colb:
+                    st.plotlychart(fig_bar_table,use_container_width=True)
 
 
 
