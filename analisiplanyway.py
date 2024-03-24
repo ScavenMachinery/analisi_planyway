@@ -222,7 +222,7 @@ if password_input:
                 # Crea il grafico a barre con il DataFrame ordinato
                 fig_bar_table = px.bar(list_level_data_table_sorted, x='List', y='DurationHours')
 
-                cola, colb = st.columns(2)
+                cola, colb = st.columns([1,2])
                 with cola:
                     st.dataframe(list_level_data_table_sorted)
                 with colb:
